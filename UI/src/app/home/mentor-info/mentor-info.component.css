@@ -1,7 +1,7 @@
 /***********************************
 Mentor Team
 ************************************/
-.pm-staff-profile-image{
+/* .pm-staff-profile-image{
 	width: 150px;
 	height: 150px;
 	background-color: #C6C6C6;
@@ -31,4 +31,133 @@ Mentor Team
 	color: #4b4b4b;
 	font-weight: 100;
   }
-  
+   */
+
+
+a:HOVER {
+	color: #fff;
+}
+
+h5, h6 {
+	color: #a1a1a1;
+}
+
+.rupees {
+	float: right;
+}
+
+.card a {
+	background-color: #ff5722;
+}
+
+.active-class {
+	float: left;
+	vertical-align: middle;
+}
+
+.offer {
+	float: right;
+}
+
+.cart {
+	float: right;
+}
+
+.delivery {
+	color: blue;
+	vertical-align: middle;
+}
+
+.cart-icon {
+	vertical-align: middle;
+}
+
+.launch {
+	vertical-align: middle;
+	font-size: 15px;
+}
+
+.login {
+	background-color: #ff5722;
+}
+
+.new-user {
+	float: right;
+}
+
+.login-form {
+	max-width: 400px;
+	margin: 60px auto;
+	margin-top: 0;
+}
+
+.signup-form {
+	max-width: 600px;
+	margin: 60px auto;
+	margin-top: 0;
+}
+
+.text-down {
+	vertical-align: text-bottom;
+}
+
+/* MENU ITEM LIST */
+
+/* ! CARD CSS */
+.card-deck .card {
+	/* padding-bottom:10px; */
+	width: 30rem;
+	box-shadow: 10px 10px 5px #aaaaaa;
+
+}
+
+.container-fluid {
+	margin-top: 10px;
+	align-content: center;
+}
+
+.icon-size {
+	font-size: 13px;
+	vertical-align: middle;
+}
+
+#testname {
+	white-space: normal;
+}
+
+.card-subtitle {
+	padding: 16px 0px 16px 0px;
+	font-size: 12px;
+}
+
+.card-text {
+	font-size: 14px;
+}
+
+.veralign {
+	vertical-align: middle;
+}
+
+.add-to-cart .btn-success, .edit-cards .btn-success, .submit .btn-success
+	{
+	background-color: #c9363c;
+	border: 0px;
+}
+
+#badge-free {
+	vertical-align: top;
+}
+
+#dateofLaunch {
+	font-size: 12px;
+	vertical-align: top;
+}
+
+#icon-shipping {
+	color: #1e90ff;
+}
+
+/* CART */
+.delete-icon-size {
+	font-size: 2rem;
+}

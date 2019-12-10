@@ -1,4 +1,5 @@
-<!--Faculity member-->
+<!-- Faculity member
+<div class="container-fluid">
 <section id="faculity-member" class="section-padding">
   <div class="container mt-4">
     <div class="row">
@@ -34,4 +35,41 @@
     </div>
   </div>
 </section>
+</div> -->
 <!--/ Faculity member-->
+
+<div class="container-fluid">
+  <div class="card-deck add-to-cart mb-5 pb-5">
+    <div>
+      <div class="card mt-4">
+        <img class="card-img-top" src="{{mentor.mentorDetails.image}}" alt="Card image cap">
+        <div class="card-body pr-4 pl-4 pb-3">
+          <div class="row">
+            <h2 class="col">
+              <label name="name" id="testname">{{mentor.mentorDetails.firstName}}</label>
+            </h2>
+            <label name="price" class="float-right text-danger pr-3"><i
+                class="material-icons">next_week</i>{{mentor.mentorDetails.experience}}</label>
+          </div>
+
+          <div class="row">
+            <label name="name" class="col" id="testname"><i class="material-icons">grade</i>{{mentor.rating}}</label>
+            <label name="price" class="float-right text-danger pr-3"><i
+                class="material-icons">volume_up</i>{{mentor.trainings}}</label>
+          </div>
+          <div class="row">
+            <label name="name" class="col" id="testname"> <i
+                class="material-icons">phone</i>{{mentor.mentorDetails.contact}}</label>
+                <label class="float-right mr-4"><i style="font-size:24px" class="fa">&#xf08c;</i></label>
+            <label name="price" class="float-right text-danger pr-3"><i
+                class="material-icons">mail</i>{{mentor.mentorDetails.email}}</label>
+          </div>
+          <button type="button" class="btn btn-success float-right" *ngIf="isStudent()"
+            (click)="book(mentor.mentorDetails.userName,mentor.id)">
+            <i class="material-icons veralign">library_add</i> Book Slot
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
