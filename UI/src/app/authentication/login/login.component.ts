@@ -24,12 +24,12 @@ export class LoginComponent implements OnInit {
       this.authenticationService.loggedIn=true
       if(data.Role=='Mentor'){
           this.authenticationService.isMentor=true  
-          this.authenticationService.username=username;
+          this.authenticationService.username=data.Username;
           this.router.navigate(['/profile']);
       }
       else if(data.Role=='Student'){
           this.authenticationService.isStudent=true
-          this.authenticationService.username=username;
+          this.authenticationService.username=data.Username;
           this.router.navigate(['/studentdetails']);
       }
     });

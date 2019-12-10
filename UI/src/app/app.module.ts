@@ -18,6 +18,8 @@ import { MentorListComponent } from './home/mentor-list/mentor-list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { StudentComponent } from './student/student.component';
 import { StudentApprovalComponent } from './student-approval/student-approval.component';
+import { ProgressComponent } from './progress/progress.component';
+import { MentorProgressComponent } from './mentor-progress/mentor-progress.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +34,9 @@ import { StudentApprovalComponent } from './student-approval/student-approval.co
     MentorListComponent,
     ProfileComponent,
     StudentComponent,
-    StudentApprovalComponent
+    StudentApprovalComponent,
+    ProgressComponent,
+    MentorProgressComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +74,12 @@ import { StudentApprovalComponent } from './student-approval/student-approval.co
       },{
         path:'studentApprove',
         component:StudentApprovalComponent
+      },{
+        path:'progress',
+        component:ProgressComponent
+      },{
+        path:'mentorprogress',
+        component:MentorProgressComponent
       }
     ])
   ],

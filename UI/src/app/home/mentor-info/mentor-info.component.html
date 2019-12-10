@@ -64,7 +64,7 @@
             <label name="price" class="float-right text-danger pr-3"><i
                 class="material-icons">mail</i>{{mentor.mentorDetails.email}}</label>
           </div>
-          <button type="button" class="btn btn-success float-right" *ngIf="isStudent()"
+          <button type="button" class="btn btn-success float-right" *ngIf="isStudent() && mentor.mentorDetails.active"
             (click)="book(mentor.mentorDetails.userName,mentor.id)">
             <i class="material-icons veralign">library_add</i> Book Slot
           </button>

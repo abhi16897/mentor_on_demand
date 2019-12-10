@@ -16,11 +16,11 @@
               <label for="search-bar" class="input-group-text green lighten-3 ml-2"> <i
                   class="material-icons text-light">youtube_searched_for</i>
               </label>
-              <!-- <input class="form-control search" type="search" placeholder="Search Here" aria-label="Search"
-                name="Search" id="search-bar" [(ngModel)]='searchKey' (keyup)="search()" size="50"> -->
-                <select>
-                       <option></option>
-                </select>
+              <input class="form-control search" type="search" placeholder="Search Here" aria-label="Search"
+                name="Search" id="search-bar" [(ngModel)]='searchKey' (keyup)="search()" size="50">
+                <!-- <select [(ngModel)]="searchKey">
+                    <option *ngFor="let obj of objArray" [value]="obj.value">{{obj.name}}</option>
+                </select> -->
             </div>
           </div>
         </form>
@@ -38,13 +38,19 @@
           <a class="nav-link" routerLink="/mentor" *ngIf="!isLoggedIn()">Mentor Registration</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" routerLink="/progress" *ngIf="isLoggedIn() && isStudent()">progress</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" routerLink="/mentorprogress" *ngIf="isLoggedIn() && isMentor()">progress</a>
+            </li>
+        <li class="nav-item">
           <a class="nav-link" routerLink="login" *ngIf="!isLoggedIn()">Log In</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" routerLink="/studentApprove" *ngIf="isStudent() && isLoggedIn()">Approvals</a>
           </li>
         <li class="nav-item" *ngIf="isLoggedIn()">
-          <a class="nav-link" href="#" (click)="onSignOut()"><i class="material-icons">
+          <a class="nav-link" (click)="onSignOut()"><i class="material-icons">
               exit_to_app
             </i></a>
         </li>

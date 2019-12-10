@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { skills } from '../home/skills';
 import { Observable, Subject } from 'rxjs';
 import { Technology } from '../home/Technology';
+import { Training } from '../approval/Training';
 
 
 @Injectable({
@@ -25,9 +26,6 @@ export class MentorDetailsService {
   book(studentName:String,mentoName:String,technologyName:number){
         return this.httpClient.post('http://localhost:9805/proposal/'+studentName+"/"+mentoName+"/"+technologyName,null);
   }
-  // getAll(){
-  //   return this.httpClient.get<Technology>('');
-  // }
 
   getMentorRequests(mentorName:String,status:String):Observable<any>{
     return this.httpClient.get('http://localhost:9805/proposal/mentor/'+mentorName+"/"+status)
@@ -39,5 +37,20 @@ export class MentorDetailsService {
 
   getStudentRequests(studentName:String):Observable<any>{
     return this.httpClient.get('http://localhost:9805/proposal/student/'+studentName)
+  }
+  // getAllTechnologies(){
+  //   return this.httpClient.get('http://localhost:9805/proposal/student/'+)
+  // }
+  getCurrentCourses(username:String):Observable<any>{
+    return this.httpClient.get<Training[]>('http://localhost:9806/training/student/current/'+username);
+  }
+  getCurrentMentorCourses(username:String):Observable<any>{
+    return this.httpClient.get<Training[]>('http://localhost:9806/training/mentor/current/'+username);
+  }
+  getTableOfContents(username:String,status:String):Observable<any>{
+    return this.httpClient.get<String[]>('http://localhost:9806/training/contents/'+username+"/"+status);
+  }
+  updateProgress(username:String,status:String):Observable<any>{
+    return this.httpClient.put('http://localhost:9806/training/progress/'+username+"/"+status,null);
   }
 }
