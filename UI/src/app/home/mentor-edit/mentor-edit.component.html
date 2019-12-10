@@ -1,0 +1,87 @@
+<div class="cointainer ml-3 mr-4">
+    <h2 class="heading">Edit Mentor Details</h2>
+    <form [formGroup]="form" (submit)="onSubmit()">
+        <div class="row heading">
+            <div class="col-lg-4">
+                <h5>
+                    <label for="name">Username</label>
+                </h5>
+                <input type="text" class="form-control" id="name" [formControl]="name" formControlName="name" disabled>
+            </div>
+            <div class="col-lg-4">
+                    <h5>
+                        <label for="name">First Name</label>
+                    </h5>
+                    <input type="text" class="form-control" id="name" [formControl]="name" formControlName="name">
+                </div>
+                <div class="col-lg-4">
+                    <h5>
+                        <label for="vh_number">Last Name</label>
+                    </h5>
+                    <input type="text" class="form-control" id="vh_number" [formControl]="vh_number"
+                        formControlName="vh_number">
+                </div>      
+        </div>
+        <div class="row heading">
+            <div class="col-lg-12">
+                <h5>
+                    <label for="photoURL">Image URL</label>
+                </h5>
+                <input type="text" class="form-control" id="photoURL" [formControl]="photoURL"
+                    formControlName="photoURL">
+                <div *ngIf="photoURL.invalid && photoURL.errors.required" class="invalid">
+                    Photo URL is required.
+                </div>
+            </div>
+        </div>
+        <!-- <div class="md-20"> -->
+            <div class="row heading">
+                    <div class="col-lg-4">
+                            <h5>
+                                <label for="vh_number">Email Id</label>
+                            </h5>
+                            <input type="text" class="form-control" id="vh_number" [formControl]="vh_number"
+                                formControlName="vh_number" disabled>
+                        </div>
+                <div class="col-lg-4">
+                    <h5>
+                        <label for="price">Contact No</label>
+                    </h5>
+                    <input type="text" class="form-control" id="price" formControlName="price" [formControl]="price">
+                    <div *ngIf="price.invalid && price.errors.required" class="invalid">
+                        Price per day is required.
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <h5>
+                        <label for="price">Experience</label>
+                    </h5>
+                    <input type="number" class="form-control" id="price" formControlName="price" [formControl]="price">
+                    <div *ngIf="price.invalid && price.errors.required" class="invalid">
+                        Price per day is required.
+                    </div>
+
+                </div>
+            </div>
+        <!-- </div> -->
+        <!-- <div class="md-20 "> -->
+            <div class="row heading">
+                <div class="col-lg-12">
+                    <h5>
+                        <label for="branch">LinkedIn Url</label>
+                    </h5>
+                    <input type="text" class="form-control" id="branch" formControlName="branch" [formControl]="branch">
+                    <div *ngIf="branch.invalid && branch.errors.required" class="invalid">
+                        Branch is required.
+                    </div>
+                    <div class="invalid" *ngIf="branch.errors?.maxlength">Branch Code must be less then 5 char</div>
+                </div>
+            </div>
+        <!-- </div> -->
+        <div class="row heading">
+            <div class="col-lg-5">
+                <button type="submit" class="btn btn-blue" [disabled]="!form.valid">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
