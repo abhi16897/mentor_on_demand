@@ -1,0 +1,126 @@
+version: '3'
+services:
+  mentor_on_demand-mysql:
+    image: mysql:8.0.18
+    ports:
+      - "33061:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      -  C:/mentor_on_demanddb:/var/lib/mysql
+      - ./dbscripts:/docker-entrypoint-initdb.d
+
+  authentication-service:
+    image: authentication-app
+    build: authentication-service/.
+    ports:
+      - 9800:9800
+    depends_on:
+      - eureka-discovery-service
+      - mentor_on_demand-mysql      
+    links:
+      - eureka-discovery-service
+      - mentor_on_demand-mysql
+
+  eureka-discovery-service:
+    image: eureka-discovery-app
+    build: eureka-discovery-service/.
+    ports:
+      - 8761:8761
+    depends_on:
+      - mentor_on_demand-mysql
+    links:
+      - mentor_on_demand-mysql
+
+  registration-service:
+    image: registration-app
+    build: registration-service/.
+    ports:
+      - 9801:9801
+    depends_on:
+      - eureka-discovery-service
+      - mentor_on_demand-mysql      
+    links:
+      - eureka-discovery-service
+      - mentor_on_demand-mysql
+
+  search-service:
+    image: search-app
+    build: search-service/.
+    ports:
+      - 9804:9804
+    depends_on:
+      - eureka-discovery-service
+      - mentor_on_demand-mysql      
+    links:
+      - eureka-discovery-service
+      - mentor_on_demand-mysql
+
+  technology-service:
+    image: technology-app
+    build: technology-service/.
+    ports:
+      - 9802:9802
+    depends_on:
+      - eureka-discovery-service
+      - mentor_on_demand-mysql      
+    links:
+      - eureka-discovery-service
+      - mentor_on_demand-mysql
+
+  training-service:
+    image: training-app
+    build: training-service/.
+    ports:
+      - 9806:9806
+    depends_on:
+      - eureka-discovery-service
+      - mentor_on_demand-mysql      
+    links:
+      - eureka-discovery-service
+      - mentor_on_demand-mysql
+ 
+  user-service:
+    image: user-app
+    build: user-service/.
+    ports:
+      - 9805:9805
+    depends_on:
+      - eureka-discovery-service
+      - mentor_on_demand-mysql      
+    links:
+      - eureka-discovery-service
+      - mentor_on_demand-mysql
+
+  zuul-gateway:
+    image: zuul-gateway-app
+    build: zuul-gateway/.
+    ports:
+      - 8005:8005
+    depends_on:
+      - eureka-discovery-service
+      - mentor_on_demand-mysql
+      - authentication-service
+      - user-service
+      - training-service
+      - technology-service
+      - search-service
+      - registration-service
+    links:
+      - eureka-discovery-service
+      - mentor_on_demand-mysql
+      - authentication-service
+      - user-service
+      - training-service
+      - technology-service
+      - search-service
+      - registration-service
+
+
+  angular-service:
+    image: angular-app
+    build: dist/.
+    ports:
+      - 4200:80
+    links:
+      - zuul-gateway
